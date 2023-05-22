@@ -1,0 +1,153 @@
+
+
+.button {
+	padding: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0px 0px 20px 0px;
+	cursor: pointer;
+	background-color: rgb(161, 22, 22);
+}
+
+.yellow {
+	color: rgb(161, 22, 22);
+}
+
+.recipe-form {
+	position: relative;
+	display: inline-block;
+	margin:10px 65px 10px !important;
+	width: 1100px;
+	padding: 20px 0px 0px 20px;
+	border-radius: 10px;
+	backdrop-filter: blur(10px);
+	border: 2px solid rgb(161, 22, 22);
+	background-color: rgba(255,255,255,0.13);
+
+}
+.lesson._focus {
+	outline: 2px dotted rgb(27, 248, 71);
+}
+
+button {
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s ease 0s;
+	padding: 0px 16px;
+	font-size: 16px;
+	color: #FFF;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: cursive;
+	background: #a11616;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+#button_form{
+	align-content: center;
+align-self: center;
+	margin-left: auto;
+	margin-right: auto;
+	background: #ff0000;
+}
+button:hover {
+	background-color: rgb(248, 248, 89);
+}
+
+.main-form {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.main-form._active {
+	outline: 1px solid red;
+}
+.main-form__column {
+	background-color:aliceblue !important;
+	flex: 0 1 100%;
+}
+.main-form__column:last-child {
+	flex: 1 1 auto;
+}
+.main-form__item {
+	margin: 5px 0px 25px 0px;
+}
+.main-form__label {
+	display: block;
+	margin: 0px 0px 10px 0px;
+	font-size: 16px;
+	font-weight: 500;
+}
+.main-form__input,
+.main-form__select,
+.main-form__textarea {
+	font-family: inherit;
+	min-height: 40px;
+	font-size: 16px;
+	line-height: 40px;
+	width: 300px;
+	padding: 0px 15px;
+	color: #fff;
+	background-color: rgba(255,255,255,0.07);
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+.main-form__input-num {
+	font-family: inherit;
+	min-height: 40px;
+	font-size: 16px;
+	line-height: 40px;
+	width: 150px;
+	padding: 0px 15px;
+	color: #fff;
+	background-color: rgba(255,255,255,0.07);
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+.input-num input{
+	font-family: inherit;
+	min-height: 40px;
+	font-size: 16px;
+	line-height: 40px;
+	width: 25px;
+	padding: 0px 15px;
+	color: #fff;
+	background-color: rgb(48, 48, 48);
+	border: 1px solid #111;
+	border-radius: 3px;
+}
+
+.main-form__textarea {
+	padding: 10px 15px;
+	min-height: 100px;
+}
+
+.main-form__radio {
+	margin: 0px 0px 5px 0px;
+}
+
+.main-form__button {
+	margin-top: 10px;
+}
+.main-form__image {
+	margin: 10px 0px 0px 0px;
+}
+.main-form__image img {
+	width: 150px;
+}
+
+.main-form__error {
+	padding: 10px 0px 0px 0px;
+	color: red;
+}
+.ingredient__error {
+	padding: 10px 0px 0px 0px;
+	color: red;
+}

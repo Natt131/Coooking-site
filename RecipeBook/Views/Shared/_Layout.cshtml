@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/forms.css" rel="stylesheet" />
+    <link href="~/css/list_of_recipes.css" rel="stylesheet" />
+    <link href="~/css/main.css" rel="stylesheet" />
+    <link href="~/css/nav.css" rel="stylesheet" />
+    <link href="~/css/recipe.css" rel="stylesheet" />
+    <link href="~/css/normalize.css" rel="stylesheet" />
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</head>
+<body>
+
+    <header class="top">
+        <div class="top-panel">
+            <nav class="menu-nav">
+                <ul>
+                    <li><a asp-controller="Recipe" asp-action="Index">Главная</a></li>
+                    <li>
+                        <a asp-controller="Recipe" asp-action="Catalog">Cайты</a>
+                        @*<a asp-controller="Recipe" asp-action="List">Рецепты</a> *@
+                    </li>
+
+                    <li> <a asp-controller="Recipe" asp-action="List">Рецепты</a></li>
+             @*       <li><a asp-controller ="Recipe" asp-action="Sites">Сайты</a></li>*@
+             <li> <a asp-controller="Recipe" asp-action="Create"> Добавить</a> </li>
+                </ul>
+            </nav>
+           
+        </div>
+        <div class="two">
+            <p> Кулинарный сайт </p>
+            <p>  Сoolinarz </p>
+        </div>
+    </header>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success text-center confirmed">@TempData["message"]</div>
+    }
+    <div class="panel-body panel-success text-center">
+        <div class="panel-body" id="content">
+            @RenderBody()
+        </div>
+    </div>
+
+ 
+</body>
+</html>

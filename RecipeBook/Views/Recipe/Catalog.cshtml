@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Сайты";
+}
+
+
+<h1 class="pannel-text">Популярные  кулинарные сайты</h1>
+<div class="recipe" style="width: 97% !important;">
+    <div class="form-two">
+        <p> Нажмите на сайт, чтобы узнать о нем подробнее и получить ссылку!</p>
+        <p id="load"> </p>
+        <br />
+
+        <h3 style="color: black" > Сайты поcвященные домашней кухне</h3>
+
+        <p id="showCD"> </p>
+
+        <input type="button" onclick="previous()" value="<<">
+        <input type="button" onclick="next()" value=">>">
+
+    </div>
+</div>
+<script src="~/ajax/sites1.js"></script>
+<footer>
+    <div class="container">
+        <p>Карта сайта</p>
+        <ul class="list-unstyled three-column">
+            <li><a href="#">Главная страница</a></li>
+            <li><a href="#">Рецепты </a></li>
+            <li><a href="#">Статьи о кулинарии</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="#">Полезные сайты</a></li>
+        </ul>
+
+    </div>
+    <div class="copyright text-center">
+        Cамарский университет, 2022 <span>Технологии сети интернет</span>
+    </div>
+</footer>

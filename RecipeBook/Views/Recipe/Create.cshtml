@@ -1,0 +1,223 @@
+﻿@model RecipeViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .new input{
+        background-color: #DCD0D4;
+        color:black;
+        font-size:16px;
+    }
+
+    .new textarea {
+        color: black;
+        font-size: 16px;
+        width:80%;
+        background-color: #DCD0D4;
+    }
+
+</style>
+<h1 class="pannel-text"><b>Загрузить свой рецепт</b></h1>
+<div class="recipe-form">
+    <form class="main-form form-group-sm new">
+        @* @await Html.PartialAsync("FullRecipeInput")*@
+        <input type="hidden" id="recID" />
+        <div  style="width:100% !important; align-self:center !important">
+            <div class="main-form__item form-group-sm">
+                <label class="main-form__label">Название: </label>
+                <div><span asp-validation-for="Recipe.Name"></span></div>
+                <input class="main-form__input" id="Name" />
+            </div>
+
+            <div class="main-form__item form-group-sm">
+                <label class="main-form__label">Категория: </label>             
+                <input  class="main-form__input" id="Category" />
+            </div>
+
+            <div class="main-form__item">
+                <label class="main-form__label">Описание: </label>
+                <div><span asp-validation-for="Recipe.Description"></span></div>
+                <textarea class="main-form__textarea" id="Description"></textarea>
+            </div>
+
+            <div class="row" style="padding-left:200px">
+                <div class="main-form__item col-md-3" >
+                    <label class="main-form__label">Количество персон: </label>
+                    <input class="main-form__input" style="width:100px !important" id="Servings" />
+                    <div><span asp-validation-for="Recipe.Servings"></span></div>
+                </div>
+                <div class="main-form__item col-md-3">
+                    <label class="main-form__label">Время на подготовку: </label>
+                    <input class="main-form__input" style="width:100px !important" id="PrepMin" />
+                    <div><span asp-validation-for="Recipe.PrepMinutes"></span></div>
+                </div>
+                <div class="main-form__item col-md-3">
+                    <label class="main-form__label">Время готовки: </label>
+                    <input class="main-form__input" style="width:100px !important" id="CookMin" />
+                    <div><span asp-validation-for="Recipe.CookMinutes"></span></div>
+                </div>
+            </div>
+            <div class="main-form__item col-md-12 increaseTop">
+                <br />
+                <label class=" main-form__label">Инструкция по приготовлению: </label>
+                <textarea rows="5" class="main-form__textarea" style="width:80% " id="Directions"></textarea>
+                <div><span asp-validation-for="Recipe.Directions"></span></div>
+            </div>
+
+            <div class="row" style="padding-left:200px">
+         
+                <input type="hidden" id="ingID" />
+                <div class="main-form__item col-md-3">
+                    <label class="main-form__label" name="ingrInput">Количество: </label>
+                    <input class="main-form__input" style="width:100px !important" id="amoun0" />
+                </div>
+                <div class="main-form__item col-md-3">
+                    <label class="main-form__label">Единицы измерения: </label>
+                    <input class="main-form__input" style="width:100px !important" id="unit0" />
+                </div>
+                <div class="main-form__item col-md-3">
+                    <label class="main-form__label">Название: </label>
+                    <input class="main-form__input" style="width:100px !important" id="nameing0" />
+                </div>
+            </div>
+              <div id="new"></div>
+           
+            <div id="button_ingr" onclick="file()" class="main-form__column main-form__button">Добавить поле</div>
+                @*@for (int x = 0; x < 2; x++)
+                {
+                    <div class="main-form__item">
+                        @Html.HiddenFor(i => i.Ingredients[x].IngredientID)
+                        <label id="for_input_ingr0" class="ingredient__error " style="display: none;"></label>
+
+                        @Html.EditorFor(i => i.Ingredients[x].Amount, new { htmlAttributes = new { @class = "main-form__input form-control" } })
+                        @Html.ValidationMessageFor(i => i.Ingredients[x].Amount, "", new { @class = " input-validation-error" })
+
+                        <input oninput="number(this)" class="main-form__input" style="width: 60px !important; padding-left: 1px; padding-right: 0px" value="" type="text" name="numInput" placeholder="Кол-во" autocomplete="off">
+                        <input checked type="radio" value="грамм" name="typeRadio" class="main-form__radio" id="radio_3">
+                        <label for="radio_3" class="main-form__inline-label">гр.</label>
+                        <input type="radio" value="штук" name="typeRadio" class="main-form__radio" id="radio_4">
+                        <label for="radio_4" class="main-form__inline-label">шт.</label>
+                        <input type="radio" value="по вкусу" name="typeRadio" class="main-form__radio" id="radio_5">
+                        <label for="radio_5" class="main-form__inline-label">по вкусу</label>
+                    </div>
+                }
+            </div>*@
+
+
+           
+
+        </div>
+        <br />
+        <div class=" text-center">
+            <br />
+            
+        </div>
+    </form>
+    <button class="main-form__button  btn formBtn" id="btn" type="submit">Добwавить!</button>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+<script>
+
+    //добавление полей для игредиента
+    var count = 0; 
+    buttonIngr = document.getElementById("button_ingr");// buttonIngr.onclick = function
+    function file() {
+        this.count++;
+        document.getElementById("new").insertAdjacentHTML( //txtItem
+            "afterbegin",
+            `<div class="row" style="padding-left:200px">
+                <div class="main-form__item col-md-3">
+                                <label class="main-form__label" name="ingrInput">Количество: </label>
+                                                <input class="main-form__input" style="width:100px !important" id="amoun`+ this.count + `" />
+                                 </div>
+                                   <div class="main-form__item col-md-3">
+                                                <label class="main-form__label">Единицы измерения: </label>
+                                        <input  class="main-form__input"  style="width:100px !important" id="unit`+ this.count + `" />
+                                     </div>
+                                    <div class="main-form__item col-md-3">
+                                        <label class="main-form__label">Название: </label>
+                                        <input class="main-form__input" style="width:100px !important" id="nameing`+ this.count + `" />
+                                    </div></div>`
+        );
+        //document.getElementById("button_ingr").insertAdjacentHTML( //txtItem
+        //    "afterbegin",
+        //    `
+        //    <div class="main-form__item col-md-3">
+        //                    <label class="main-form__label" name="ingrInput">Количество: </label>
+        //                                    <input class="main-form__input" style="width:100px !important" id="amoun`+ this.count + `" />
+        //                     </div>
+        //                       <div class="main-form__item col-md-3">
+        //                                    <label class="main-form__label">Единицы измерения: </label>
+        //                            <input  class="main-form__input"  style="width:100px !important" id="unit`+ this.count + `" />
+        //                         </div>
+        //                        <div class="main-form__item col-md-3">
+        //                            <label class="main-form__label">Название: </label>
+        //                            <input class="main-form__input" style="width:100px !important" id="nameing`+ this.count + `" /> 
+        //                        </div>`
+        //);
+    }
+
+    //ДОБАВЛЕНИЕ AJAX
+    $("body").on("click", "#btn", function () {
+
+        var ingrs = [];
+        var rec = {};
+
+        //   console.log("len",document.getElementsByName("ingrInput").length);
+        var name = $("#Name");
+        var description = $("#Description");
+        var servings = $("#Sevings");
+        var prepMin = $("#PrepMin");
+        var cookMin = $("#CookMin");
+        var directions = $("#Directions");
+
+        var category=$("#Category");
+
+        rec.Name = name.val();
+        rec.Description = description.val();
+        rec.Servings = 5;
+        rec.CookMinutes = cookMin.val();
+        rec.PrepMinutes = prepMin.val();
+        rec.Directions = directions.val();
+        rec.Category=category.val();
+        let i = 0;
+        let ing = {};
+        // console.log(this.count);
+        while (i < document.getElementsByName("ingrInput").length) {
+            let ing = {};
+            ing.Name = $("#nameing" + i).val();
+            ing.Unit = $("#unit" + i).val();
+            ing.Amount = $("#amoun" + i).val();
+            ingrs.push(ing);
+            i++;
+        }
+        console.log(ingrs);
+
+        var json = JSON.stringify({
+            Recipe: rec,
+            Ingredients: ingrs
+        });
+
+        console.log(json);
+
+        $.ajax({
+            type: "POST",
+            url: "Recipe/CreateRec",
+            data: json,//JSON.stringify(model),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (r) {
+                window.location.href = r;
+            },
+            error: function (xhr) {
+                //Do Something to handle error
+                alert("xtn ytwwwwwwww nj", xhr),
+                    window.location.href = "Recipe/List".redirect;
+            }
+        });
+        //
+    });
+</script>

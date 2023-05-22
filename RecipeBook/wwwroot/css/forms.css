@@ -1,0 +1,138 @@
+
+/*uath*/
+.auth form{
+    align-content: center;
+
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: relative;
+    margin:10px auto 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgb(161, 22, 22);
+    padding: 30px 35px;
+}
+.auth form *{
+    font-family: cursive;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+
+}
+.auth  form span {
+    align-self: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #ff0000;
+}
+
+.auth  form span {
+    align-self: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #ff0000;
+}
+
+.auth  .radio input {
+    align-self: center;
+    font-size: 5px;
+    height: 5px !important;
+    color: #ff0000;
+}
+.auth ._error {
+    box-shadow: 0 0 15px red;
+}
+.auth label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.auth input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.auth button{
+    margin: 20px auto 20px ;
+
+    position: relative;
+    font-size: 16px;
+    padding: 12px 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: cursive;
+    background: #ff0000;
+    border-radius: 10px;
+}
+.auth p {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+.auth a {
+    text-decoration: none;
+    color: #ff0000;
+    font-size: 16px;
+    text-shadow: white;
+
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    max-width: 840px;
+}
+
+
+/* Location, Phone, Email Section */
+.contact-list {
+    list-style-type: none;
+    margin-left: 10px;
+    padding-right: 20px;
+}
+
+.list-item {
+    line-height: 4;
+    color: #aaa;
+}
+
+.contact-text {
+    font: 300 18px 'Lato', sans-serif;
+    color: #bbb;
+}
+
+.place {
+    margin-left: 62px;
+}
+
+.phone {
+    margin-left: 56px;
+}
+
+.gmail {
+    margin-left: 53px;
+}
+
+.contact-text a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+
+

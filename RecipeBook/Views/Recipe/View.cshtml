@@ -1,0 +1,76 @@
+﻿@model RecipeViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<main>
+
+    <div class="container recipe">
+        <div class="row">
+            <div class="col-sm-8 pull-sm-4"><h1><b>@Model.Recipe.Name</b></h1></div>
+        </div>
+        <br />
+        <table class="table table-bordered form-two" style="background-color:white !important">
+            <thead>
+                <tr>
+                    <th> <span> Количество персон </span></th>
+                    <th> <span>Время подготовления </span></th>
+                    <th> <span>Время готовки</span></th>
+                </tr>
+            </thead>
+            <tbody style="color:black !important">
+                <tr>
+                    <th style="background-color:white !important; color:black !important"> @Model.Recipe.Servings</th>
+                    <th style="background-color:white !important; color:black !important">@Model.Recipe.PrepMinutes</th>
+                    <th style="background-color:white !important; color:black !important">@Model.Recipe.CookMinutes</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container recipe">
+        <div class="form-two">
+            <h2> <span> Ингредиенты </span></h2>
+            <ul class="list-unstyled " style="color: black; font-size: 18px;">
+
+                @foreach (Ingredient i in Model.Ingredients)
+                {
+                    <li>@i.Amount @i.Unit @i.Name</li>
+                }
+                <br />
+                <li>
+                    <a asp-action="IngAddToRecipe" asp-controller="Ingredient" asp-route-RecipeID="@Model.Recipe.RecipeID"
+                       class="btn btn-success glyphicon-plus">Добавить ингредиент</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class="container recipe">
+        <div class="form-two">
+            <h2><span> Способ приготовления </span></h2>
+            <ul class="list-unstyled" style="color: black; font-size: 18px;">
+                @{
+                    string[] dirList = Model.Recipe.Directions.Split(".");
+                    foreach (var line in dirList)
+                    {
+                        <li>@line</li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>Карта сайта</p>
+        <ul class="list-unstyled three-column">
+            <li><a href="#">Главная страница</a></li>
+            <li><a href="#">Полезные сайты</a></li>
+        </ul>
+
+    </div>
+    <div class="copyright text-center">
+        Cамарский университет, 2022 <span>Технологии сети интернет</span>
+    </div>
+</footer>

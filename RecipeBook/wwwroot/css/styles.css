@@ -1,0 +1,380 @@
+body {
+  color: #ffffff;
+  font: 12px Tahoma, sans-serif;
+  background-color: #2c0a0a;
+  margin: 0;
+}
+
+p {
+  margin: 20px 0;
+}
+
+logo {
+  position: relative;
+  float: left;
+  margin-top: 20px;
+}
+
+form[name="search"] {
+  float: right;
+
+}
+
+
+.top {
+  position: relative;
+  margin: 0px auto 0px;
+  width: 100%;
+  height: 285px;
+  background-image: url("../img/1111.jpg");
+
+}
+.two{
+  position: relative;
+  text-align: center;
+  margin: auto;
+  display: block;
+  margin: 0px auto;
+  float:left;
+  padding: 10px 50px 0px 0px;
+  padding-left: 80px !important;
+
+}
+ .two h1 {
+
+  font-family: 'Inter';
+  font-style: italic;
+  font-size: 48px;
+  color: #a11616;
+  text-indent: 0px;
+  font-variation-settings: 'slnt' -6;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.83);
+}
+
+
+.two p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 64px;
+  line-height: 77px;
+  text-align: center;
+  color: #c50404;
+  text-shadow: 0px 4px 10px #000000;
+}
+
+.top-panel  {
+  position: static;
+  display: inline-flex;
+  margin: auto;
+  width:100%;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+}
+.top-panel form{
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+/* Navigation */
+.menu-nav {
+
+  position:relative;
+  width: 100%;
+background: rgba(0, 0, 0, 0.1);
+  float: top;
+}
+
+.menu-nav ul {
+  list-style:none;
+  padding-left: 20px;
+}
+
+.menu-nav ul li {
+  margin-left: 30px;
+  display: inline-block;
+  position:relative;
+}
+.menu-nav ul li a {
+  color: white;
+  font-family: cursive;
+  font-style: inherit;
+  font-size: 18px;
+  text-align:center;
+  text-decoration: none;
+}
+
+.menu-nav ul li ul {
+  position: sticky;
+  display: none;
+  text-align:center;
+  background-color: #030303;
+  background: rgba(0, 0, 0, 0.7);
+
+}
+
+
+/*--------------------------poiskkk-------------------------------*/
+
+
+.search {
+position: relative;
+display: inline-flex;
+}
+.search a {
+  margin-top: 10px;
+  margin-right: auto;
+  color: #ff0000;
+  font-family: cursive;
+  font-style: inherit;
+  font-size: 18px;
+  display: inline-flex;
+  text-decoration: none;
+}
+.search form{
+  display: inline-flex;
+padding-right: 15px;
+  margin-left: 16px;
+}
+.search input {
+  background: #ffffff;
+
+  margin:10px auto 10px;
+  border-radius: 20px;
+}
+.search button {
+  margin:10px auto 10px;
+  background: #ff0000;
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+}
+
+
+.pannel-text {
+  position: center;
+  margin: 10px;
+  font-color: white;
+  font-family: cursive;
+  font-size: 28px;
+  text-align: center;
+}
+.pannel-text a {
+
+ color: #ff0000;
+  text-decoration: none;
+}
+
+
+.main-new {
+  position: relative;
+  padding: 10px;
+  background-color: white;
+  margin:10px 10px 10px;
+  display: inline-block;
+  border-style: groove;
+  border-radius: 20px;
+}
+
+
+.main-new h1 {
+  position: relative;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 24px;
+  color: rgb(255, 0, 0);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-right: 30px;
+  font-family: cursive;
+}
+.main-new .name {
+  position: relative;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 24px;
+  color: rgb(255, 0, 0);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-right: 30px;
+  font-family: cursive
+}
+.main-new p {
+
+  line-height: 1.5;
+  color: black;
+  font-size: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  margin: 8px;
+  text-indent: 30px;
+  padding-left: 30px;
+}
+.main-new br {
+  ext-indent: 30px;
+}
+.main-new img{
+  float: left;
+  display: flex;
+border-radius: 30px;
+  margin-right: 20px;
+}
+.main-new button {
+  position: relative;
+  float: right;
+  border:none;
+  border-radius: 15px;
+  background-color: #ff0000;
+  color: white;
+  text-align: center;
+  width: 150px;
+ font-size: 20px;
+  margin: 30px;
+  margin-right: 50px;
+}
+
+.main-recipe{
+  display: inline-flex ;
+  position: center;
+ margin: auto;
+}
+.main-recipe  article{
+  background-color: white;
+  border-radius: 20px;
+ margin: 10px;
+  padding: 10px;
+  width: 330px;
+  align-content: center;
+}
+.form {
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+  width: 330px;
+  align-content: center;
+}
+.main-recipe p {
+  color: black;
+  font-size: 18px;
+  font-family: 'Inter';
+  font-style: normal;
+  text-align: center;
+}
+.main-recipe time {
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: cursive;
+}
+.main-recipe footer {
+  position: relative;
+  text-align: center;
+  line-height: 4px;
+  font-family: cursive;
+}
+.main-recipe footer p{
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(255, 0, 0);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: cursive;
+}
+
+.main-recipe img{
+
+  border-radius: 20px;
+  max-width: 330px;
+ }
+.main-recipe a{
+  text-align: center;
+  font-size: 20px;
+  color: rgb(255, 0, 0);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: cursive;
+  text-decoration: none;
+}
+
+
+/*-----------otziv---------------------*/
+.comments1{
+position: relative;
+  background-color: white;
+  display: inline-block;
+  border-style: groove;
+  border-radius: 20px;
+  display: inline-block;
+  width:60%;
+  float:left;
+  padding: 10px;
+}
+.comments1 form{
+  border: 1px;
+  margin-top:5px;
+}
+.form h4 {
+  color: #a11616;
+  font-family: cursive;
+  font-size: 20px;
+}
+.form p {
+  color:black;
+  font-size: 18px;
+  display:inline;
+}
+
+.foot {
+  position: relative;
+  background: url("../img/1111f.jpg");
+  height: 283px;
+}
+
+
+footer {
+  background: url("../img/1111f.jpg");
+  color: #838080;
+  padding-top: 10px;
+}
+
+footer a {
+  color: #fcfcfc;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #a11616;
+}
+
+footer p{
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 20px 0 20px;
+  font-size: 20px;
+}
+
+footer .three-column {
+  overflow: hidden;
+}
+
+footer .three-column li{
+  width: 20%;
+  float: left;
+  padding: 5px 0;
+}
+
+footer .copyright {
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: 20px;
+  font-size: 15px;
+
+}
+
+footer .copyright span {
+  color: #a11616;
+}

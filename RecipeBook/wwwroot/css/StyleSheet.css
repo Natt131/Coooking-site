@@ -1,0 +1,103 @@
+﻿body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.labelled {
+    color: red;
+    font-size: medium;
+    background-color: turquoise;
+    margin: 20px;
+}
+
+#h1Format {
+    color: blueviolet;
+    background-color: darkturquoise; 
+    margin-bottom: .2vh;
+}
+#h4Format {
+    background-color: darkturquoise;
+    color: antiquewhite;
+    padding: 7px 5px;
+}
+h3 {
+    color: blueviolet;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#rIngredients h2, #rDirections h2 {
+    color: blueviolet;
+    background-color: turquoise;
+}
+
+#navbar, #navbar a {
+    background-color: turquoise;
+    color: blueviolet;
+}
+    #navbar a:hover {
+        color: paleturquoise;
+    }
+
+#contained {
+    background-color: turquoise;
+    border-radius: 19px;
+    color: blueviolet;
+}
+
+#tHead tr th, table, #tBody {
+    color: blueviolet;
+    text-align: center;
+    font-size: large;
+}
+#tHead {
+    background-color: turquoise;
+}
+tbody th {
+    background-color: darkturquoise;
+    color: antiquewhite;
+    text-align: center;
+}
+
+#logo {
+    width: 150px;
+    height: 100px;
+}
+
+.formBtn {
+    width: 20vh;
+    margin: 1vh 5vh;
+}
+
+.listTbl td a, .listTbl td button {
+    display: inline-block;
+    margin: 0 2vw;
+}
+.listTbl .btn {
+    width: 12vw;
+    margin-right: 3vw;
+    margin-left: 3vw;
+}
+
+#h1Format a {
+    height: 8vh;
+    width: 20vw;
+    margin: 3vh 1.5vw;
+    padding: 2vh .1vw;
+} 
+
+#h1Format a.glyphicon-plus {
+    float: right;
+}
+
+.input-validation-error {
+    border-color: red;
+    background-color: #fee;
+    color:red;
+    font-size:small;
+}
+
+.ingFormBtn button{
+    margin-top:10vh;
+}
+
+//style
+

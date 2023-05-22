@@ -1,0 +1,35 @@
+﻿@model Recipe
+
+<div class="form-group-sm">
+    <label class="labelled">Название: </label>
+    <div><span asp-validation-for="Name"></span></div>
+    <input asp-for="Name" class="form-control" id="Name" />
+</div>
+<div class="form-group-sm">
+    <label class="labelled">Описание: </label>
+    <div><span asp-validation-for="Description"></span></div>
+    <input asp-for="Description" class="form-control" id="Description" placeholder="A brief despcription of the recipe" />
+</div>
+<div class="row">
+    <div class="form-group-sm col-md-4">
+        <label class="labelled">Servings: </label>
+        <input asp-for="Servings" class="form-control" id="Servings" />
+        <div><span asp-validation-for="Servings"></span></div>
+    </div>
+    <div class="form-group-sm col-md-4">
+        <label class="labelled">Prep minutes: </label>
+        <input asp-for="PrepMinutes" class="form-control" id="PrepMin" />
+        <div><span asp-validation-for="PrepMinutes"></span></div>
+    </div>
+    <div class="form-group-sm col-md-4">
+        <label class="labelled">Cook minutes: </label>
+        <input asp-for="CookMinutes" class="form-control" id="CookMin" />
+        <div><span asp-validation-for="CookMinutes"></span></div>
+    </div>
+    <div class="form-group-sm col-md-12 increaseTop">
+        <br />
+        <label class="labelled">Directions: </label>
+        <textarea asp-for="Directions" rows="5" class="form-control" id="Directions" placeholder="Enter directions separated by periods."></textarea>
+        <div><span asp-validation-for="Directions"></span></div>
+    </div>
+</div>

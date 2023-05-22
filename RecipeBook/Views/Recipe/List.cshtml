@@ -1,0 +1,246 @@
+﻿@model IEnumerable<Recipe>
+@{
+    ViewData["Title"] = "Рецепты";
+}
+<style>
+    .ha{
+
+        font-size:16px;
+        text-align: center;
+        margin: 30px;
+        background-color:white;
+        border-radius:10px;
+        padding:20px;
+        color: black;
+    }
+    }
+</style>
+<h1 class="pannel-text"> Каталог рецептов</h1>
+<div>
+<br />
+<div class=" ha">
+        <label for="select"> Категория: </label>
+        <select style="z-index:100; color:black" id="select">
+            <option value="null" selected>Категория...</option>
+            <option value="Первое">Первое</option>
+            <option value="Второе">Второе</option>
+            <option value="Салаты">Салаты</option>
+            <option value="Закуски">Закуски</option>
+            <option value="Десерты">Десерты</option>
+            <option value="Выпечка">Выпечка</option>
+        </select>
+        <label for="select2"> Время приготовления: </label>
+        <select style="z-index:100; color:black" id="select2">
+            <option value="0" selected>До...</option>
+            <option value="20">До 20 минут</option>
+            <option value="40">До 40 минут</option>
+            <option value="60">До 60 минут</option>
+            <option value="180">До 3 часов</option>
+        </select>
+        <button id="btnCook" style="display:inline"> Посмотреть!</button>
+    </div>
+</div>
+<div class="form-two">
+    <div class="btn-up btn-up_hide">↑</div>
+    <div class="grid" id="grid" style="margin-left:-850px;">
+               
+     
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="~/Scripts/ASPSnippets_Pager.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+@*<script charset="utf-8" src="~/ajax/filters.js"></script>*@
+    <script>
+   
+
+    //рабочая страница 
+    function codeAddress() {
+      //  alert("che");
+        let obj = '';
+        $.ajax({
+            type: "GET",
+            //url: "Recipe/ViewCookMinAndCategory?=" + cookMin+ category,
+            url: "Recipe/ViewAll",
+            //url: "Recipe/ViewCookMin?=" + cookMin, //все отлчино для одного фильтра
+            contentType: "application/json;charset=utf-8;",
+            dataType: "json",
+            success: function (result, status, xhr) {
+                recipes = result;
+                console.log(result);
+                // console.log(result[0].Name);
+                $('.grid').empty();
+
+                $.each(recipes, function (index, item) {
+                    var url = '\"\View?RecipeID=' + item.recipeID + '"';
+
+                    obj += '<div class=\"grid-item\"' + 'style =\"height: 250px\">' + '<div class=\"info\">' + ' <div>  <a href=\"' + url;
+                    obj += '\">' + item.name + '</a>';
+                    obj += '</div> <div class=\"info-text\"> <p>' + item.description + '</p>';
+                    obj += '</div>';
+                    obj += ' <div class=\"info-text\" style = \"margin-top: 20px !important\" > ';
+                    obj += '<a class=\"atuin-btn\" style = \"background-color: green !important; \" href=' + url + '\"> Подробнее </a>';
+                    obj += '</div>';
+                    obj += '<div class=\"info-text\" style = \"margin-top: 40px !important; margin-bottom: 30px !important\">';
+               //     obj += ' <button class=\"atuin-btn\" onclick="deleteRec('+item.RecipeID+')\" > Удалить </button>';
+                    obj += '</div>';
+                    obj += '</div>';
+                    obj += '</div>';
+
+                    $('#grid').html(obj);
+                });
+            },
+            error: function (error) {
+                alert("Ошибка получения данных", error);
+            }
+        });
+    }
+    window.onload = codeAddress;
+
+    $('#btnCook').click(function () {
+        let obj='';
+        let category = $('#select').val();
+        let cookMin = $('#select2').val();
+       // alert(cookMin)     // $('.emptyMe').empty();
+        if ((category === "null") && (cookMin != 0)){
+            $.ajax({
+                type: "GET",
+                // url: "Recipe/ViewCookMinAndCategory",
+                url: "Recipe/ViewCookMin?=" + cookMin, //все отлчино для одного фильтра
+                contentType: "application/json;charset=utf-8;",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                    recipes = result;
+                    console.log(result);
+                    //console.log(result[0].Name);
+                    $('.grid').empty();
+
+                    $.each(recipes, function (index, item) {
+
+                        var url = '\"\View?RecipeID=' + item.recipeID+'"';
+
+                        obj += '<div class=\"grid-item\"'+'style =\"height: 250px\">'+'<div class=\"info\">' +' <div>  <a href=\"'+url;
+                        obj += '\">'+item.name+'</a>';
+                        obj += '</div> <div class=\"info-text\"> <p>'+item.description +'</p>';                       
+                        obj += '</div>';
+                        obj += ' <div class=\"info-text\" style = \"margin-top: 20px !important\" > ';
+                        obj += '<a class=\"atuin-btn\" style = \"background-color: green !important; \" href='+url+'\"> Подробнее </a>';
+                        obj += '</div>';
+                        obj += '</div>';
+                        obj += '</div>';
+
+                        $('#grid').html(obj);
+                    });
+                },
+                error: function (error) {
+                    alert("Data can/t get", error);
+                }
+            });
+        }
+        else if ((category !== "null") && (cookMin != 0)) {
+            $.ajax({
+                type: "GET",
+                url: "Recipe/ViewCookMinAndCategory?cookMin=" + cookMin + "&category=" + category,
+                contentType: "application/json;charset=utf-8;",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                    recipes = result;
+                    console.log(result);
+                  //  console.log(result[0].Name);
+                    $('.grid').empty();
+
+                    $.each(recipes, function (index, item) {
+
+                        var url = '\"\View?RecipeID=' + item.recipeID + '"';
+
+                        obj += '<div class=\"grid-item\"' + 'style =\"height: 250px\">' + '<div class=\"info\">' + ' <div>  <a href=\"' + url;
+                        obj += '\">' + item.name + '</a>';
+                        obj += '</div> <div class=\"info-text\"> <p>' + item.description + '</p>';
+                        obj += '</div>';
+                        obj += ' <div class=\"info-text\" style = \"margin-top: 20px !important\" > ';
+                        obj += '<a class=\"atuin-btn\" style = \"background-color: green !important; \" href=' + url + '\"> Подробнее </a>';
+                        obj += '</div>';
+                        obj += '</div>';
+                        obj += '</div>';
+
+                        $('#grid').html(obj);
+                    });
+                },
+                error: function (error) {
+                    alert("Ошибка получения данных", error);
+                }
+            });
+        }
+
+        else if ((category !== "null") && (cookMin == 0)) {
+            $.ajax({
+                type: "GET",
+                url: "Recipe/ViewCookMinAndCategory?cookMin=" + 5000 + "&category=" + category,
+                contentType: "application/json;charset=utf-8;",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                    recipes = result;
+                    console.log(result);
+                    $('.grid').empty();
+
+                    $.each(recipes, function (index, item) {
+
+                        var url = '\"\View?RecipeID=' + item.recipeID + '"';
+
+                        obj += '<div class=\"grid-item\"' + 'style =\"height: 250px\">' + '<div class=\"info\">' + ' <div>  <a href=\"' + url;
+                        obj += '\">' + item.name + '</a>';
+                        obj += '</div> <div class=\"info-text\"> <p>' + item.description + '</p>';
+                        obj += '</div>';
+                        obj += ' <div class=\"info-text\" style = \"margin-top: 20px !important\" > ';
+                        obj += '<a class=\"atuin-btn\" style = \"background-color: green !important; \" href=' + url + '\"> Подробнее </a>';
+                        obj += '</div>';
+                        obj += '</div>';
+                        obj += '</div>';
+
+                        $('#grid').html(obj);
+                    });
+                },
+                error: function (error) {
+                    alert("Ошибка получения данных", error);
+                }
+            });
+        }
+
+        else {
+            $.ajax({
+                type: "GET",
+                url: "Recipe/ViewAll",
+                contentType: "application/json;charset=utf-8;",
+                dataType: "json",
+                success: function (result, status, xhr) {
+                    recipes = result;
+                    console.log(result);
+                    $('.grid').empty();
+
+                    $.each(recipes, function (index, item) {
+                        var url = '\"\View?RecipeID=' + item.recipeID + '"';
+
+                        obj += '<div class=\"grid-item\"' + 'style =\"height: 250px\">' + '<div class=\"info\">' + ' <div>  <a href=\"' + url;
+                        obj += '\">' + item.name + '</a>';
+                        obj += '</div> <div class=\"info-text\"> <p>' + item.description + '</p>';
+                        obj += '</div>';
+                        obj += ' <div class=\"info-text\" style = \"margin-top: 20px !important\" > ';
+                        obj += '<a class=\"atuin-btn\" style = \"background-color: green !important; \" href=' + url + '\"> Подробнее </a>';
+                        obj += '</div>';
+                        obj += '</div>';
+                        obj += '</div>';
+
+                        $('#grid').html(obj);
+                    });
+                },
+                error: function (error) {
+                    alert("Ошибка получения данных", error);
+                }
+            });
+        }
+  
+    });
+
+</script>

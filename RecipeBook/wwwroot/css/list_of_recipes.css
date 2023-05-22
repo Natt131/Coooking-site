@@ -1,0 +1,229 @@
+/*-----------list of elements---------------------*/
+
+.sidenav {
+    border-radius: 10px;
+    width: 250px;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    background: white;
+    /*background: linear-gradient(45deg, #ffffff, #543737);*/
+    overflow-x: hidden;
+    padding: 8px 0;
+}
+
+.sidenav a {
+    padding: 6px 6px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+    display: block;
+}
+.sidenav a:hover {
+    padding: 6px 6px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #20be44;
+    display: block;
+}
+
+/*new*/
+.grid * {
+    position: relative;
+    box-sizing: border-box;
+}
+.grid {
+    position: relative;
+    display: grid;
+    width: 240px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+}
+
+.grid-item {
+
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgb(255, 0, 0), 0 4px 6px rgb(0, 0, 0);
+
+}
+.grid-item-active {
+    border-radius: 10px;
+    background-color: #af5c5c;
+    box-shadow: 0 2px 5px rgb(0, 0, 0), 0 4px 6px rgb(0, 0, 0);
+    width: 250px;
+    
+
+}
+.grid-item .image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-width:350px;
+    max-height: 230px;
+    overflow: hidden;
+}
+
+.grid-item .info {
+    position: relative;
+    padding: 16px 14px 80px 14px;
+}
+
+
+
+.info a {
+    font-family: 'Roboto', Тahoma, sans-serif;
+    color: #a11616;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+}
+.info-text p {
+    font-size: 15px;
+    line-height: 20px;
+    font-family: Verdana, sans-serif;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.grid-item .button-wrap {
+    display: block;
+    width: 100%;
+    position: absolute;
+    /*top: 200px;*/
+    bottom: 14px;
+    text-align: center;
+
+}
+/* Кнопка подробнее */
+.grid-item .atuin-btn {
+    /*display: inline;*/
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 12px 30px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Roboto', Тahoma, sans-serif;
+    background: #ff0000;
+    border-radius: 10px;
+}
+.form-one {
+    display: block;
+    position: relative;
+    float: left;
+    text-align: center;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.form-one p {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: cursive;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.form-two
+{
+    position: relative;
+
+}
+
+/*-----------modal---------------------*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal .container{
+    width:80%;
+    max-width: 600px;
+    height: auto;
+    margin: -40px auto;
+    display: block;
+    background-color: white;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.modal .container img {
+    max-width: 250px;
+    max-height: 200px;
+
+    margin: auto;
+}
+.modal .container a {
+
+    font-family: 'Roboto', Тahoma, sans-serif;
+    color: #a11616;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+}
+.modal span {
+    line-height: 1.5;
+    color: #a11616;
+    font-size: 20px;
+    font-family: cursive;
+}
+.modal .container p{
+    color: black;
+    font-size: 14px;
+    line-height: 5px;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+/*кнопка вверх страницы*/
+.btn-up {
+    /* фиксированное позиционирование */
+    z-index: 1;
+    position: fixed;
+    background-color: #23dc3e;
+    right: 40px;
+    bottom: 40px;
+border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+}
+
+.btn-up_hide {
+    display: none;
+}
+
